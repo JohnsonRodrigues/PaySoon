@@ -1,0 +1,33 @@
+{
+    "name": "speedapps/paysoon",
+    "description": "package for integration with Pague Logo payment method",
+    "homepage": "https://www.paguelogo.com.br/",
+    "minimum-stability": "dev",
+    "keywords": [
+        "Pague Logo",
+        "PaySoon",
+        "API",
+        "Payment SaaS",
+        "Credit Card",
+        "Boleto"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Johnson Rodrigues",
+            "email": "sertanustecnologia@gmail.com",
+            "homepage": "https://www.sertanus.com.br"
+        }
+    ],
+    "require": {
+        "php": ">=7.4.0",
+        "laravel/framework": ">=6.0",
+        "ext-curl": "*",
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "SpeedApps\\PaySoon\\": "src"
+        }
+    }
+}
