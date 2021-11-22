@@ -10,6 +10,7 @@
         "Credit Card",
         "Boleto"
     ],
+    "minimum-stability": "stable",
     "license": "MIT",
     "authors": [
         {
