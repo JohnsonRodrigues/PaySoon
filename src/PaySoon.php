@@ -6,6 +6,7 @@ namespace SpeedApps\PaySoon;
 class PaySoon
 {
     private Charge $charge;
+    private Reversal $reversal;
     private string $token;
     private int $whois;
 
@@ -16,6 +17,17 @@ class PaySoon
         $this->whois = $data['whois'];
         $this->token = $data['token'];
         $this->setCharge(new Charge($connection, $this->token, $this->whois));
+        $this->setReversal(new Reversal($connection, $this->token, $this->whois));
+    }
+
+    public function getReversal(): Reversal
+    {
+        return $this->reversal;
+    }
+
+    public function setReversal(Reversal $reversal): void
+    {
+        $this->reversal = $reversal;
     }
 
     public function getCharge(): \SpeedApps\PaySoon\Charge
