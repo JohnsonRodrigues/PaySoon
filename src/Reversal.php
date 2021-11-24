@@ -6,10 +6,10 @@ use SpeedApps\PaySoon\Exceptions\ReversalException;
 
 class Reversal
 {
-    public Connection $connection;
-    protected array $reversal;
-    private string $token;
-    private int $whois;
+    public  $connection;
+    protected $reversal;
+    private $token;
+    private $whois;
 
     public function __construct(Connection $connection, string $token, int $whois)
     {

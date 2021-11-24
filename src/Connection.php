@@ -8,12 +8,12 @@ use SpeedApps\PaySoon\Exceptions\ConnectionException;
 
 class Connection
 {
-    private string $user;
-    private string $password;
-    private string $type;
-    private bool $urlType;
-    private string $base_url;
-    private string $headers;
+    private $user;
+    private $password;
+    private $type;
+    private $urlType;
+    private $base_url;
+    private $headers;
 
     public function __construct(string $user, string $password, string $type = 'homologation')
     {

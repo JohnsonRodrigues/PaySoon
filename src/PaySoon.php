@@ -5,10 +5,10 @@ namespace SpeedApps\PaySoon;
 
 class PaySoon
 {
-    private Charge $charge;
-    private Reversal $reversal;
-    private string $token;
-    private int $whois;
+    private $charge;
+    private $reversal;
+    private $token;
+    private $whois;
 
     public function __construct(string $user, string $password, string $type = 'homologation')
     {

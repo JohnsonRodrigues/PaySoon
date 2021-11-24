@@ -6,10 +6,10 @@ use SpeedApps\PaySoon\Exceptions\ChargeException;
 
 class Charge
 {
-    public Connection $connection;
-    protected array $charge;
-    private string $token;
-    private int $whois;
+    public $connection;
+    protected $charge;
+    private  $token;
+    private  $whois;
 
     public function __construct(Connection $connection, string $token, int $whois)
     {
