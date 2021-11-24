@@ -12,7 +12,7 @@ class PaySoon
 
     public function __construct(string $user, string $password, string $type = 'homologation')
     {
-        $connection = new \SpeedApps\PaySoon\Connection("usuario", "usuario", "homologation");
+        $connection = new \SpeedApps\PaySoon\Connection($user, $password, $type);
         $data = $connection->authorization();
         $this->whois = $data['whois'];
         $this->token = $data['token'];
