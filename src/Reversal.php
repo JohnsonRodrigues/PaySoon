@@ -21,7 +21,7 @@ class Reversal
     public function reversal(string $chargeId)
     {
         $dataCharge = $this->setReversal($chargeId);
-        return $this->connection->post('/cartao/pagar', $this->reversal, ['Whois: ' . $this->whois, 'Authorization: Bearer ' . $this->token]);
+        return $this->connection->post('/estorno/solicitar/', $this->reversal, ['Whois: ' . $this->whois, 'Authorization: Bearer ' . $this->token]);
     }
 
     public function setReversal(string $chargeId)
