@@ -7,7 +7,6 @@ use SpeedApps\PaySoon\Exceptions\TransferException;
 class Transfer
 {
     public $connection;
-    protected $transfer;
     private $token;
     private $whois;
 
@@ -18,21 +17,9 @@ class Transfer
         $this->whois = $whois;
     }
 
-    public function reversal(string $chargeId)
+    public function transfer(array $data = [])
     {
-        $dataCharge = $this->setReversal($chargeId);
-        return $this->connection->post('/transferencia/solicitar', $this->transfer, ['Whois: ' . $this->whois, 'Authorization: Bearer ' . $this->token]);
+        return $this->connection->post('/transferencia/solicitar', $data, ['Whois: ' . $this->whois, 'Authorization: Bearer ' . $this->token]);
     }
 
-    public function setReversal(string $valor, string $type = "cartão")
-    {
-        try {
-            $this->transfer = array(
-                "valorSolicitado" => $valor,
-                "tipo" => $type
-            );;
-        } catch (TransferException $e) {
-            return 'error transfer - ' . $e->getMessage();
-        }
-    }
 }
