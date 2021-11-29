@@ -7,6 +7,7 @@ class PaySoon
 {
     private $charge;
     private $reversal;
+    private $transfer;
     private $token;
     private $whois;
 
@@ -18,6 +19,7 @@ class PaySoon
         $this->token = $data['token'];
         $this->setCharge(new Charge($connection, $this->token, $this->whois));
         $this->setReversal(new Reversal($connection, $this->token, $this->whois));
+        $this->setTransfer(new Transfer($connection, $this->token, $this->whois));
     }
 
     public function getReversal(): Reversal
@@ -38,6 +40,16 @@ class PaySoon
     public function setCharge(\SpeedApps\PaySoon\Charge $charge): void
     {
         $this->charge = $charge;
+    }
+
+    public function getTransfer(): \SpeedApps\PaySoon\Transfer
+    {
+        return $this->transfer;
+    }
+
+    public function setTransfer(\SpeedApps\PaySoon\Transfer $transfer): void
+    {
+        $this->transfer = $transfer;
     }
 
     public function getToken(): string
