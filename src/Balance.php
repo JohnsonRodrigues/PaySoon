@@ -22,12 +22,14 @@ class Balance
     public function accountBalance(string $type = "cartao")
     {
         try {
-            if ($type == 'cartao' || $type == "boleto"){
-                return $this->connection->post('resumoFinanceiro/saldoDisponivel?tipo=' . $type, null, ['Whois: ' . $this->whois, 'Authorization: Bearer ' . $this->token]);
+            if ($type == 'cartao' || $type == "boleto") {
+                return $this->connection->get('resumoFinanceiro/saldoDisponivel?tipo=' . $type, false, false, ['Whois: ' . $this->whois, 'Authorization: Bearer ' . $this->token]);
             }
-            Throw new BalanceException("o tipo de consulta permitido é cartão ou boleto");
-        }catch (BalanceException $e){
+            throw new BalanceException("o tipo de consulta permitido é cartão ou boleto");
+        } catch (BalanceException $e) {
             return 'Saldo em conta:  - ' . $e->getMessage();
+        } catch (Exceptions\ConnectionException $e) {
+            return "Error" . -' . $e->getMessage();
         }
     }
 }
