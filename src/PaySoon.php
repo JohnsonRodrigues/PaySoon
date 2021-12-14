@@ -8,6 +8,7 @@ class PaySoon
     private $charge;
     private $reversal;
     private $transfer;
+    private $balance;
     private $token;
     private $whois;
 
@@ -20,6 +21,7 @@ class PaySoon
         $this->setCharge(new Charge($connection, $this->token, $this->whois));
         $this->setReversal(new Reversal($connection, $this->token, $this->whois));
         $this->setTransfer(new Transfer($connection, $this->token, $this->whois));
+        $this->setBalance(new Balance($connection, $this->token, $this->whois));
     }
 
     public function getReversal(): Reversal
@@ -50,6 +52,16 @@ class PaySoon
     public function setTransfer(\SpeedApps\PaySoon\Transfer $transfer): void
     {
         $this->transfer = $transfer;
+    }
+
+    public function getBalance()
+    {
+        return $this->balance;
+    }
+
+    public function setBalance($balance): void
+    {
+        $this->balance = $balance;
     }
 
     public function getToken(): string
