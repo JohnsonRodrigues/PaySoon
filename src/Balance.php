@@ -29,7 +29,7 @@ class Balance
         } catch (BalanceException $e) {
             return 'Saldo em conta:  - ' . $e->getMessage();
         } catch (Exceptions\ConnectionException $e) {
-            return "Error" . -' . $e->getMessage();
+            return "Error - " . $e->getMessage();
         }
     }
 }
