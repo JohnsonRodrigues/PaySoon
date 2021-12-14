@@ -54,12 +54,12 @@ class PaySoon
         $this->transfer = $transfer;
     }
 
-    public function getBalance()
+    public function getBalance():Balance
     {
         return $this->balance;
     }
 
-    public function setBalance($balance): void
+    public function setBalance(\SpeedApps\PaySoon\Balance $balance): void
     {
         $this->balance = $balance;
     }
