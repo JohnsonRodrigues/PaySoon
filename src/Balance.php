@@ -23,7 +23,7 @@ class Balance
     {
         try {
             if ($type == 'cartao' || $type == "boleto") {
-                return $this->connection->get('resumoFinanceiro/saldoDisponivel?tipo=' . $type,  ['Whois: ' . $this->whois, 'Authorization: Bearer ' . $this->token]);
+                return $this->connection->get('/resumoFinanceiro/saldoDisponivel?tipo=' . $type,  ['Whois: ' . $this->whois, 'Authorization: Bearer ' . $this->token]);
             }
             throw new BalanceException("o tipo de consulta permitido é cartão ou boleto");
         } catch (BalanceException $e) {
