@@ -50,22 +50,18 @@ class Connection
         }
     }
 
-    public function get(string $url, bool $option = false, bool $custom = false, array $headers = array())
+    public function get(string $url, array $headers = array())
     {
         array_push($headers, "Content-Type: application/json");
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->base_url . '.paguelogo.com.br/api' . $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
         curl_setopt($ch, CURLOPT_HEADER, FALSE);
-
-        if (!empty($custom)) {
-            curl_setopt($ch, CURLOPT_CUSTOMREQUEST, $custom);
-        }
+        curl_setopt($ch, CURLOPT_POST, false);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
         $response = curl_exec($ch);
         curl_close($ch);
         $response = json_decode($response);
-
         if (empty($response))
             throw new ConnectionException('Connection Not Found');
         return $response;
