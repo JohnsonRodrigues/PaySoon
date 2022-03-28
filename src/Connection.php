@@ -38,7 +38,7 @@ class Connection
             ];
             $response = $this->post('/auth', $params);
 
-            if (empty($response->data) && isset($response->responseStatus) && $response->responseStatus->status === 'error')
+            if (empty($response->data) && isset($response->responseStatus) &&  $response->responseStatus[0]->status === 'error')
                 throw new AuthenticateException("Incorrect username and/or password(s).");
 
             return [
