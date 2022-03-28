@@ -46,7 +46,7 @@ class Connection
                 'token' => $response->data->token ?? null
             ];
         } catch (ConnectionException | AuthenticateException $e) {
-            die($e);
+            throw new AuthenticateException("Incorrect username and/or password(s).");
         }
     }
 
